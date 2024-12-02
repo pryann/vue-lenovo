@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue unpkg</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="decrement">-</button>
+      <span>{{ formattedPrice }}</span>
+      <button @click="increment">+</button>
+      <p v-show="errorMessage">{{errorMessage}}</p>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

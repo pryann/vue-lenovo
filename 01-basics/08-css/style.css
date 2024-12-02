@@ -1,0 +1,25 @@
+.out-of-stock {
+  color: red;
+  font-size: 1.25em;
+}
+
+.only-few-left {
+  color: orange;
+  font-size: 1.5em;
+}
+
+.in-stock {
+  color: green;
+  font-size: 1em;
+}
+
+/* 
+BEM
+.stock {
+}
+.stock--in {
+}
+.stock--out-of {
+}
+.stock--only-few {
+} */

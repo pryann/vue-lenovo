@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue unpkg</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Guitars</h1>
+      <div class="guitars">
+        <div v-for="guitar in guitars" :key="guitar.id">
+          <div class="guitar">
+            <h2>{{ guitar.name }}</h2>
+            <span v-if="guitar.stock === 0" class="out-of-stock">Out of stock</span>
+            <span v-else-if="guitar.stock < 3" class="only-few-left">Last chance! Only {{ guitar.stock }} left</span>
+            <span v-else class="in-stock">In stock</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+    <article class="article">
+      <header class="article__header">
+        <h2 class="artcile__title"></h2>
+      </header>
+      <section class="article__body">
+        <p class="article__author"></p>
+        <p class="article__content"></p>
+      </section>
+      <footer class="article__footer">
+        <button class="article__view article__view--visited"></button>
+      </footer>
+    </article> -->
+
+    <!-- css
+    .article {
+      &__header {}
+      &__title {}
+      &__body {}
+      &__author {}
+      &__content {}
+      &__footer {}
+      &__view {
+        &--visited {}
+      }
+    } -->
+
+    <script src="main.js"></script>
+  </body>
+</html>
