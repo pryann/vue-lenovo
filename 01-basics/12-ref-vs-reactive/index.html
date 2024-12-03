@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue unpkg</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <form ref="form" class="form" @submit.prevent="handleSubmit">
+        <div class="form__group">
+          <label for="name">FirstName:</label>
+          <input type="text" name="firstName" id="firstName" v-model="userForm.firstName" />
+          <div>{{ userForm.firstName }}</div>
+        </div>
+
+        <div class="form__group">
+          <label for="name">LastName:</label>
+          <input type="text" name="lastName" id="lastName" v-model="userForm.lastName" />
+          <div>{{ userForm.lastName }}</div>
+        </div>
+
+        <div class="form__group">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" v-model="userForm.email" />
+          <div>{{ userForm.email }}</div>
+        </div>
+        <div class="form__group">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="main-ref.js"></script>
+  </body>
+</html>

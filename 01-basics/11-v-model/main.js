@@ -7,7 +7,7 @@ const app = createApp({
       email: '',
     }
 
-    const userForm = reactive(userFormInitialState)
+    const userForm = reactive({ ...userFormInitialState })
 
     const form = ref(null)
 
@@ -21,10 +21,10 @@ const app = createApp({
 
       // reset form values, but not reset the form state
       // form.value.reset()
-      console.log(userForm)
       // userForm.name = ''
       // userForm.email = ''
-      // Object.assign(userForm, userFormInitialState)
+      Object.assign(userForm, userFormInitialState)
+      console.log(userForm)
       // console.log(userForm)
     }
 
