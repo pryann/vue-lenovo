@@ -26,10 +26,23 @@ export function useUserStore() {
     )
   }
 
+  // returns a unique id, which is greater by 1, than the current maximum id
+  function generateId() {
+    return Math.max(...users.value.map((user) => user.id), 0) + 1
+  }
+
+  async function createUser(userData) {
+    userData.id = generateId()
+    const user = await userAPI.createUser(userData)
+    // not mutated, reassigned
+    users.value = [user, ...users.value]
+  }
+
   return {
     users,
     fetchUsers,
     removeUser,
     updateUser,
+    createUser,
   }
 }

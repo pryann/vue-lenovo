@@ -11,6 +11,7 @@ function selectUser(user) {
 }
 
 onMounted(() => {
+  // TODO: Implement toast notifitaion (try..catch)
   fetchUsers()
 })
 </script>

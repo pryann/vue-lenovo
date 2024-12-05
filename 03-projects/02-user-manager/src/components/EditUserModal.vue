@@ -23,9 +23,11 @@ watch(
 
 async function handleSaveClick() {
   try {
+    // TODO: Implement toast notifitaion
     await updateUser(userFormData.value)
     closeButton.value.click()
   } catch (error) {
+    // TODO: Implement toast notifitaion
     console.error(error)
   }
 }

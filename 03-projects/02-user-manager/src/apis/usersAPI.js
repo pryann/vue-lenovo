@@ -13,3 +13,8 @@ export async function updateUser(id, updateUserData) {
   const response = await apiClient.put(`/users/${id}`, updateUserData)
   return response.data
 }
+
+export async function createUser(userData) {
+  const response = await apiClient.post('/users', userData)
+  return response.data
+}
