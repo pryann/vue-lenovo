@@ -1,9 +1,10 @@
 <script setup>
 import 'bootstrap/js/dist/modal.js'
 import { useUserStore } from '../stores/user.js'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
+import UserForm from './UserForm.vue'
 
-const props = defineProps({
+defineProps({
   user: {
     type: Object,
     required: true,
@@ -11,20 +12,12 @@ const props = defineProps({
 })
 
 const { updateUser } = useUserStore()
-const userFormData = ref(props.user)
 const closeButton = ref(null)
 
-watch(
-  () => props.user,
-  (newValue) => {
-    userFormData.value = { ...newValue }
-  }
-)
-
-async function handleSaveClick() {
+async function handleSaveClick(userFormData) {
   try {
     // TODO: Implement toast notifitaion
-    await updateUser(userFormData.value)
+    await updateUser(userFormData)
     closeButton.value.click()
   } catch (error) {
     // TODO: Implement toast notifitaion
@@ -40,6 +33,7 @@ async function handleSaveClick() {
         <div class="modal-header">
           <h5 class="modal-title">Edit user</h5>
           <button
+            ref="closeButton"
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
@@ -47,52 +41,7 @@ async function handleSaveClick() {
           ></button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="emailAddress">Email address:</label>
-              <input
-                type="email"
-                id="emailAddress"
-                class="form-control"
-                v-model="userFormData.emailAddress"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="firstName">First name:</label>
-              <input
-                type="text"
-                id="firstName"
-                class="form-control"
-                v-model="userFormData.firstName"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="lastName">Last name:</label>
-              <input
-                type="text"
-                id="lastName"
-                class="form-control"
-                v-model="userFormData.lastName"
-              />
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button
-            ref="closeButton"
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="handleSaveClick"
-          >
-            Save changes
-          </button>
+          <UserForm :userData="user" @update="handleSaveClick" />
         </div>
       </div>
     </div>
