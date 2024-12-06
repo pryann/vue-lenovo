@@ -1,6 +1,18 @@
-<script setup></script>
+<script setup>
+defineProps({
+  src: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
 <template>
-  <div></div>
+  <img class="guitar__image" :src="`guitars/${src}.jpg`" alt="src" lazy />
 </template>
 
-<style scoped></style>
+<style scoped>
+.guitar__image {
+  height: 250px;
+}
+</style>

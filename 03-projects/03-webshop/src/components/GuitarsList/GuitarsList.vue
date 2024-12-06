@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useGuitarsStore } from '../../stores/guitars.js'
+import GuitarItem from './GuitarItem.vue'
 
 const { guitars, fetchGuitars } = useGuitarsStore()
 

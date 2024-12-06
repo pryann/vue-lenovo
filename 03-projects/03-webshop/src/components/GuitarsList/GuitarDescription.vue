@@ -1,6 +1,14 @@
-<script setup></script>
+<script setup>
+defineProps({
+  description: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
 <template>
-  <div></div>
+  <p>{{ description }}</p>
 </template>
 
 <style scoped></style>

@@ -14,18 +14,19 @@ defineProps({
   },
 })
 </script>
+
 <template>
   <div class="guitar">
     <div class="left-column">
-      <GuitarImage />
+      <GuitarImage :src="guitar.title" />
     </div>
     <div class="right-column">
-      <GuitarName />
-      <GuitarDescription />
-      <GuitarPrice />
-      <GuitarRating />
-      <GuitarStock />
-      <AddToCart />
+      <GuitarName :name="guitar.title" />
+      <GuitarDescription :description="guitar.description" />
+      <GuitarPrice :price="guitar.price" />
+      <GuitarRating :rating="guitar.rating" />
+      <GuitarStock :stock="guitar.stock" />
+      <AddToCart v-if="guitar.stock > 0" :guitar="guitar" />
     </div>
   </div>
 </template>

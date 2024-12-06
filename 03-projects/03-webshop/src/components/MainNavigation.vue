@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useCartStore } from '../stores/cart'
+
+const { totalCount } = useCartStore()
+</script>
 
 <template>
   <nav class="nav">
@@ -11,7 +15,9 @@
       </li>
       <li class="nav__list-item">
         <!--link to path -->
-        <RouterLink class="nav__link" to="/cart">Cart (0)</RouterLink>
+        <RouterLink class="nav__link" to="/cart">
+          Cart ({{ totalCount }})
+        </RouterLink>
       </li>
     </ul>
   </nav>
