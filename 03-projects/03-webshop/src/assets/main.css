@@ -1,0 +1,30 @@
+:root {
+  --red: #ba0101;
+  --orange: #eab410;
+  --green: #069e15;
+  --blue: #0a84ff;
+  --black: #393939;
+  --white: #fefefe;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--green);
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--white);
+}

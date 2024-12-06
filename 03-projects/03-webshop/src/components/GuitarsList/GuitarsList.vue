@@ -1,0 +1,18 @@
+<script setup>
+import { onMounted } from 'vue'
+import { useGuitarsStore } from '../../stores/guitars.js'
+
+const { guitars, fetchGuitars } = useGuitarsStore()
+
+onMounted(() => {
+  fetchGuitars()
+})
+</script>
+
+<template>
+  <div class="guitars">
+    <GuitarItem v-for="guitar in guitars" :key="guitar.id" :guitar="guitar" />
+  </div>
+</template>
+
+<style scoped></style>
